@@ -25,12 +25,13 @@ class BlockController {
     getBlockByIndex() {
         this.server.route({
             method: 'GET',
-            path: '/api/block/{index}',
+            path: '/block/{index}',
             config: {
                 handler: async (request, h) => {
                     try {
                         const block = await this.chain.getBlock(request.params.index);
-                        return h.response(JSON.stringify(block).toString()).code(200);
+                        let block_str = JSON.stringify(block).toString();
+                        return h.response(JSON.parse(block_str)).code(200);
                     } catch (err) {
                         return h.response(err).code(404);
                     }
@@ -45,9 +46,15 @@ class BlockController {
     postNewBlock() {
         this.server.route({
             method: 'POST',
-            path: '/api/block',
+            path: '/block',
             handler: async (request, h) => {
-                let blockAux = new BlockClass.Block(request.data);
+                if (request.payload === null) {
+                    return h.response('Missing input json in Body').code(400);
+                }
+                if (request.payload.body === void 0) {
+;                    return h.response('No body field in input json').code(400);
+                }
+                let blockAux = new BlockClass.Block(request.payload.body);
                 try {
                     blockAux.height = await this.chain.getBlockHeight();
                     blockAux.hash = SHA256(JSON.stringify(blockAux)).toString();
