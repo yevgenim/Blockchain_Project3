@@ -46,17 +46,22 @@ Blocks can be added by POST localhost:8000/block and JSON in body, holding a sin
 with a string value for block's data.
 
 ## GET Endpoints
-# Get an existing block by index 
+- Get an existing block by index 
+```
 http://localhost:8000/block/<Block_Index>
-
+```
 ## POST Endpoints
-# Post a new block to the chain
+- Post a new block to the chain
+```
 http://localhost:8000/block
+```
 
-#Parameters
+#### Parameters
+```
 {
     "body": <New Block's Data>
 }
+```
 
 ## Authors
 Yevgeni Mumblat.
