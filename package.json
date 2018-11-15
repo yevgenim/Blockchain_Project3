@@ -1,0 +1,20 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "Udacity Blockchain Project3 - Integrate Blcokchain w/ a webservice",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blockchain",
+    "webservice"
+  ],
+  "author": "Yevgeni Mumblat",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "hapi": "^17.7.0",
+    "level": "^4.0.0"
+  }
+}
