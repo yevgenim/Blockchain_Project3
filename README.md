@@ -45,12 +45,14 @@ Running the tests
 Blocks can be added by POST localhost:8000/block and JSON in body, holding a single key - "data", 
 with a string value for block's data.
 
-## GET Endpoints
+## Endpoints
+
+### GET Endpoints
 - Get an existing block by index 
 ```
 http://localhost:8000/block/<Block_Index>
 ```
-## POST Endpoints
+### POST Endpoints
 - Post a new block to the chain
 ```
 http://localhost:8000/block
