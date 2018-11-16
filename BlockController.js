@@ -52,7 +52,10 @@ class BlockController {
                     return h.response('Missing input json in Body').code(400);
                 }
                 if (request.payload.body === void 0) {
-;                    return h.response('No body field in input json').code(400);
+                    return h.response('No body field in input json').code(400);
+                }
+                if (request.payload.body === "") {
+                    return h.response('Empty body field in input json').code(400);
                 }
                 let blockAux = new BlockClass.Block(request.payload.body);
                 try {
